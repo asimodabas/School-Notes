@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SchoolNotes">
         <activity
+            android:name=".DetayActivity"
+            android:exported="false" />
+        <activity
             android:name=".NotKayitActivity"
             android:exported="false" />
         <activity
