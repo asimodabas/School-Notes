@@ -1,5 +1,6 @@
 package com.asimodabas.school_notes
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
@@ -33,14 +34,14 @@ class MainActivity : AppCompatActivity() {
         notlarListe.add(n2)
         notlarListe.add(n3)
 
-        adapter=NotlarAdapter(this,notlarListe)
+        adapter = NotlarAdapter(this, notlarListe)
 
-        rv.adapter=adapter
+        rv.adapter = adapter
 
 
         fab.setOnClickListener {
 
-
+            startActivity(Intent(this@MainActivity, NotKayitActivity::class.java))
         }
 
     }
