@@ -1,6 +1,7 @@
 package com.asimodabas.school_notes
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -28,14 +29,29 @@ class NotlarAdapter(private val mContext: Context, private val notlarListe: List
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardTasarimTutucu {
-        TODO("Not yet implemented")
+
+        val tasarim = LayoutInflater.from(mContext).inflate(R.layout.card_tasarim, parent, false)
+        return CardTasarimTutucu(tasarim)
+
     }
 
     override fun onBindViewHolder(holder: CardTasarimTutucu, position: Int) {
-        TODO("Not yet implemented")
+
+        val not = notlarListe.get(position)
+        holder.textViewDers.text = not.ders_adi
+        holder.textViewnot1.text = (not.not1).toString()
+        holder.textViewnot2.text = (not.not2).toString()
+
+        holder.not_card.setOnClickListener {
+
+
+        }
+
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+
+        return notlarListe.size
+
     }
 }
