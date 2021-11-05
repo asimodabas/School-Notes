@@ -38,11 +38,19 @@ class MainActivity : AppCompatActivity() {
 
         rv.adapter = adapter
 
-
         fab.setOnClickListener {
 
             startActivity(Intent(this@MainActivity, NotKayitActivity::class.java))
         }
+    }
+
+    override fun onBackPressed() {
+
+        val intent = Intent(Intent.ACTION_MAIN)
+        intent.addCategory(Intent.CATEGORY_HOME)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
 
     }
+
 }

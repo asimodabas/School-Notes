@@ -17,6 +17,11 @@ class DetayActivity : AppCompatActivity() {
         toolbarNotDetay.title = "Note Detail"
         setSupportActionBar(toolbarNotDetay)
 
+        val not = intent.getSerializableExtra("nesne") as Notlar
+        editTextDerss.setText(not.ders_adi)
+        editTextNot11.setText((not.not1).toString())
+        editTextNot22.setText((not.not2).toString())
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
