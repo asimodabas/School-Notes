@@ -1,8 +1,30 @@
 package com.asimodabas.school_notes
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 
 class Notlardao {
+
+    @SuppressLint("Range")
+    fun tumNotlar(vt: VeritabaniYardimcisi): ArrayList<Notlar> {
+
+        val db = vt.writableDatabase
+        val notlarListe = ArrayList<Notlar>()
+        val c = db.rawQuery("SELECT * FROM notlar", null)
+
+        while (c.moveToNext()) {
+            val not = Notlar(
+                c.getInt(c.getColumnIndex("not_id")),
+                c.getString(c.getColumnIndex("ders_adi")),
+                c.getInt(c.getColumnIndex("not1")),
+                c.getInt(c.getColumnIndex("not2")))
+
+            notlarListe.add(not)
+        }
+
+        return notlarListe
+    }
+
 
     fun notSil(vt: VeritabaniYardimcisi, not_id: Int) {
 

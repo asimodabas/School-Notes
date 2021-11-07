@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var notlarListe: ArrayList<Notlar>
     private lateinit var adapter: NotlarAdapter
+    private lateinit var vt: VeritabaniYardimcisi
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,25 +19,25 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         toolbar.title = "My Notes"
-        toolbar.subtitle = "Average : 60"
         setSupportActionBar(toolbar)
 
         rv.setHasFixedSize(true)
         rv.layoutManager = LinearLayoutManager(this)
 
-        notlarListe = ArrayList()
-
-        val n1 = Notlar(1, "tarih", 40, 80)
-        val n2 = Notlar(1, "fizik", 70, 20)
-        val n3 = Notlar(1, "kimya", 20, 10)
-
-        notlarListe.add(n1)
-        notlarListe.add(n2)
-        notlarListe.add(n3)
+        vt = VeritabaniYardimcisi(this)
+        notlarListe = Notlardao().tumNotlar(vt)
 
         adapter = NotlarAdapter(this, notlarListe)
 
         rv.adapter = adapter
+
+        var toplam = 0
+        for (n in notlarListe) {
+            toplam = toplam + (n.not1 + n.not2) / 2
+        }
+        if (toplam != 0) {
+            toolbar.subtitle = "Average : ${toplam / notlarListe.size} "
+        }
 
         fab.setOnClickListener {
 
