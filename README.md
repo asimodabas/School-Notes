@@ -1,5 +1,5 @@
 # School-Notes
 
-Entering the desired course name and grades
-Calculation of entered course grades
-Taking the general average of the calculated grades
+* Entering the desired course name and grades <br>
+* Calculation of entered course grades <br>
+* Taking the general average of the calculated grades <br>
