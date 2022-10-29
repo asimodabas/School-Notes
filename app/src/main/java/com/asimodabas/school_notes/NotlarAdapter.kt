@@ -25,7 +25,6 @@ class NotlarAdapter(private val mContext: Context, private val notlarListe: List
             textViewDers = tasarim.findViewById(R.id.textViewDers)
             textViewnot1 = tasarim.findViewById(R.id.textViewnot1)
             textViewnot2 = tasarim.findViewById(R.id.textViewnot2)
-
         }
     }
 
@@ -33,7 +32,6 @@ class NotlarAdapter(private val mContext: Context, private val notlarListe: List
 
         val tasarim = LayoutInflater.from(mContext).inflate(R.layout.card_tasarim, parent, false)
         return CardTasarimTutucu(tasarim)
-
     }
 
     override fun onBindViewHolder(holder: CardTasarimTutucu, position: Int) {
@@ -45,17 +43,14 @@ class NotlarAdapter(private val mContext: Context, private val notlarListe: List
 
         holder.not_card.setOnClickListener {
 
-            val intent = Intent(mContext,DetayActivity::class.java)
-            intent.putExtra("nesne",not)
+            val intent = Intent(mContext, DetayActivity::class.java)
+            intent.putExtra("nesne", not)
             mContext.startActivity(intent)
-
         }
-
     }
 
     override fun getItemCount(): Int {
 
         return notlarListe.size
-
     }
 }

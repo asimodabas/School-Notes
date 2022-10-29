@@ -17,11 +17,10 @@ class Notlardao {
                 c.getInt(c.getColumnIndex("not_id")),
                 c.getString(c.getColumnIndex("ders_adi")),
                 c.getInt(c.getColumnIndex("not1")),
-                c.getInt(c.getColumnIndex("not2")))
-
+                c.getInt(c.getColumnIndex("not2"))
+            )
             notlarListe.add(not)
         }
-
         return notlarListe
     }
 
@@ -57,5 +56,4 @@ class Notlardao {
         db.update("notlar", values, "not_id=?", arrayOf(not_id.toString()))
         db.close()
     }
-
 }
